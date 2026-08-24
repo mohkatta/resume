@@ -629,7 +629,7 @@ function trackVisitor(){
       fd.append('Location',(geo.city||'')+', '+(geo.region||'')+', '+(geo.country||'')+' ('+(geo.country_code||'')+') | IP: '+(geo.ip||''));
       fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
       fd.append('Screen',screen.width+'x'+screen.height);
-      fd.append('Language',navigator.language||'Unknown');
+      fd.append('Z_Language',navigator.language||'Unknown');
       fd.append('Referrer',document.referrer||'Direct');
       fd.append('Page',location.href);
       fd.append('Browser',navigator.userAgent.substring(0,200));
