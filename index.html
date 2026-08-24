@@ -615,19 +615,33 @@ window.addEventListener('load',function(){
 /* ── Visitor Tracker via sendBeacon ── */
 function trackVisitor(){
   var now=new Date();
-  var params=new URLSearchParams({
-    '_subject': '👁 New CV Visitor — '+now.toUTCString(),
-    'Time':     now.toUTCString(),
-    'Device':   /Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop',
-    'Screen':   screen.width+'x'+screen.height,
-    'Language': navigator.language||'Unknown',
-    'Referrer': document.referrer||'Direct',
-    'Page':     location.href,
-    'Browser':  navigator.userAgent.substring(0,200)
-  });
-  var blob=new Blob([params.toString()],{type:'application/x-www-form-urlencoded'});
-  var ok=navigator.sendBeacon('https://formspree.io/f/moeapejg',blob);
-  console.log('Tracker sendBeacon fired:',ok);
+  var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  var t=now.toLocaleString('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' ('+tz+')';
+  fetch('https://ipapi.co/json/')
+    .then(function(res){return res.json();})
+    .then(function(geo){
+      var fd=new FormData();
+      fd.append('_subject','👀 New CV Visitor — '+(geo.city||'')+', '+(geo.country_name||''));
+      fd.append('Time',t);
+      fd.append('Location',(geo.city||'')+', '+(geo.region||'')+', '+(geo.country_name||'')+' ('+(geo.country||'')+') | IP: '+(geo.ip||''));
+      fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
+      fd.append('Screen',screen.width+'x'+screen.height);
+      fd.append('Language',navigator.language||'Unknown');
+      fd.append('Referrer',document.referrer||'Direct');
+      fd.append('Page',location.href);
+      fd.append('Browser',navigator.userAgent.substring(0,200));
+      fetch('https://formspree.io/f/moeapejg',{method:'POST',body:fd});
+    })
+    .catch(function(){
+      var fd=new FormData();
+      fd.append('_subject','👀 New CV Visitor');
+      fd.append('Time',t);
+      fd.append('Location','Unknown');
+      fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
+      fd.append('Screen',screen.width+'x'+screen.height);
+      fd.append('Referrer',document.referrer||'Direct');
+      fetch('https://formspree.io/f/moeapejg',{method:'POST',body:fd});
+    });
 }
 </script>
 </body>
