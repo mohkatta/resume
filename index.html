@@ -617,11 +617,12 @@ function trackVisitor(){
   var now=new Date();
   var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
   var t=now.toLocaleString('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' ('+tz+')';
+  var tShort=now.toLocaleString('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false});
   fetch('https://ipwho.is/')
     .then(function(res){return res.json();})
     .then(function(geo){
       var fd=new FormData();
-      fd.append('_subject','👀 New CV Visitor — '+(geo.city||'')+', '+(geo.country||''));
+      fd.append('_subject','👀 CV Visitor @ '+tShort+' — '+(geo.city||'')+', '+(geo.country||''));
       fd.append('Time',t);
       fd.append('Location',(geo.city||'')+', '+(geo.region||'')+', '+(geo.country||'')+' ('+(geo.country_code||'')+') | IP: '+(geo.ip||''));
       fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
@@ -634,7 +635,7 @@ function trackVisitor(){
     })
     .catch(function(){
       var fd=new FormData();
-      fd.append('_subject','👀 New CV Visitor (no geo)');
+      fd.append('_subject','👀 CV Visitor @ '+tShort+' (no geo)');
       fd.append('Time',t);
       fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
       fd.append('Referrer',document.referrer||'Direct');
