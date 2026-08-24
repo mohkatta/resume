@@ -618,12 +618,14 @@ function trackVisitor(){
   var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
   var t=now.toLocaleString('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' ('+tz+')';
   var tShort=now.toLocaleString('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false});
+  var cairoTime=now.toLocaleString('en-GB',{timeZone:'Africa/Cairo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' (Africa/Cairo)';
   fetch('https://ipwho.is/')
     .then(function(res){return res.json();})
     .then(function(geo){
       var fd=new FormData();
       fd.append('_subject','👀 CV Visitor @ '+tShort+' — '+(geo.city||'')+', '+(geo.country||''));
-      fd.append('A_Time',t);
+      fd.append('A_SrcTime',t);
+           fd.append('B_DstTime',cairoTime);
       fd.append('Location',(geo.city||'')+', '+(geo.region||'')+', '+(geo.country||'')+' ('+(geo.country_code||'')+') | IP: '+(geo.ip||''));
       fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
       fd.append('Screen',screen.width+'x'+screen.height);
@@ -636,7 +638,8 @@ function trackVisitor(){
     .catch(function(){
       var fd=new FormData();
       fd.append('_subject','👀 CV Visitor @ '+tShort+' (no geo)');
-      fd.append('A_Time',t);
+      fd.append('A_SrcTime',t);
+           fd.append('B_DstTime',cairoTime);
       fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
       fd.append('Referrer',document.referrer||'Direct');
       fd.append('Page',location.href);
