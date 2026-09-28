@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ambidex Integrated Solutions</title>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0D1B2A;color:#e8eef4}
+  .box{text-align:center;padding:24px}
+  .sp{width:36px;height:36px;border:3px solid #12B0A0;border-top-color:transparent;border-radius:50%;
+      margin:0 auto 16px;animation:r .8s linear infinite}
+  @keyframes r{to{transform:rotate(360deg)}}
+  a{color:#12B0A0}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="sp"></div>
+  <p>Opening Ambidex Integrated Solutions…</p>
+  <p><a id="go" href="https://ambidexsolutions.com/index.html">Continue</a></p>
+</div>
+<script>
+(function(){
+  var SITE='https://ambidexsolutions.com/index.html';
+  var FORM_LINKEDIN='https://formspree.io/f/moevyqpk';
+  var FORM_SITE='https://formspree.io/f/xyezlybj';
+
+  var q=new URLSearchParams(location.search);
+  var src=(q.get('src')||q.get('utm_source')||'').toLowerCase();
+  var ref=document.referrer||'';
+  var isLinkedIn=src==='linkedin'||/linkedin\.com|lnkd\.in/i.test(ref);
+  var form=isLinkedIn?FORM_LINKEDIN:FORM_SITE;
+  var label=isLinkedIn?'LinkedIn Visitor':'Site Visitor';
+  var dest=SITE+(isLinkedIn?'?utm_source=linkedin':'');
+  document.getElementById('go').href=dest;
+
+  var done=false;
+  function go(){ if(done)return; done=true; location.replace(dest); }
+  setTimeout(go,2500); // never keep the visitor waiting longer than this
+
+  var now=new Date();
+  var tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  var t=now.toLocaleString('en-GB',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' ('+tz+')';
+  var tShort=now.toLocaleString('en-GB',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:false});
+  var cairoTime=now.toLocaleString('en-GB',{timeZone:'Africa/Cairo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+' (Africa/Cairo)';
+
+  function send(fd){
+    fetch(form,{method:'POST',body:fd,headers:{'Accept':'application/json'},keepalive:true})
+      .then(go,go);
+  }
+  function base(fd){
+    fd.append('A_SrcTime',t);
+    fd.append('B_DstTime',cairoTime);
+    fd.append('Source',isLinkedIn?'LinkedIn':'Direct / other');
+    fd.append('Device',/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop');
+    fd.append('Screen',screen.width+'x'+screen.height);
+    fd.append('Referrer',ref||'Direct');
+    fd.append('Page',location.href);
+    fd.append('Browser',navigator.userAgent.substring(0,200));
+    fd.append('Z_Language',navigator.language||'Unknown');
+  }
+
+  fetch('https://ipwho.is/')
+    .then(function(r){return r.json();})
+    .then(function(geo){
+      var fd=new FormData();
+      fd.append('_subject','👀 Ambidex '+label+' @ '+tShort+' — '+(geo.city||'')+', '+(geo.country||''));
+      fd.append('Location',(geo.city||'')+', '+(geo.region||'')+', '+(geo.country||'')+' ('+(geo.country_code||'')+') | IP: '+(geo.ip||''));
+      base(fd); send(fd);
+    })
+    .catch(function(){
+      var fd=new FormData();
+      fd.append('_subject','👀 Ambidex '+label+' @ '+tShort+' (no geo)');
+      base(fd); send(fd);
+    });
+})();
+</script>
+</body>
+</html>
