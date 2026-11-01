@@ -294,7 +294,7 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
         <div class="sec-hd-bar"></div><h2>Professional Summary</h2><span class="ti">▾</span>
       </div>
       <div class="sec-body">
-        <p class="summary-text">Results-oriented IT Manager with 18+ years of experience leading high-performing technical teams and aligning technology strategies with business goals. Proven track record of managing multi-million dollar IT budgets ($1.5M+), executing complex cloud migrations, and strengthening enterprise cybersecurity postures. Skilled in Agile project management, vendor negotiation, and driving digital transformation initiatives that improve operational efficiency and reduce costs.</p>
+        <p class="summary-text">IT Director with 18+ years leading enterprise technology for industrial and corporate organisations, currently directing IT, security and governance at InterMark Network. Combines strategy and budget ownership (<strong>$1.5M</strong> OpEx/CapEx managed for eight years) with hands-on delivery across hybrid infrastructure, cybersecurity, ITSM and ERP. Track record of cutting cost (<strong>30%</strong> through a Dell HCI with Nutanix migration), cutting risk (<strong>45%</strong> fewer security incidents after MFA and EDR rollout on <strong>500+</strong> endpoints) and passing external security, ITGC and ITAC audits with E&amp;Y. DBA candidate and freelance IT consultant.</p>
       </div>
     </section>
 
@@ -316,10 +316,32 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
           </div>
           <div class="job-body">
             <ul>
-              <li><strong>Strategic Leadership:</strong> Formulate and execute comprehensive IT roadmaps aligned with organizational goals, enforcing governance policies and security protocols.</li>
-              <li><strong>Cybersecurity &amp; Risk:</strong> Architect robust Disaster Recovery and Business Continuity plans; conduct regular security assessments to safeguard data, networks, and backup systems.</li>
-              <li><strong>Infrastructure Management:</strong> Oversee daily IT operations and critical infrastructure (servers, OS, network hardware), managing full-lifecycle projects.</li>
-              <li><strong>Team Management:</strong> Manage IT budget and vendor negotiations; lead recruitment, mentorship, and technical training.</li>
+              <li><strong>Governance &amp; Compliance:</strong> Drafted the company's first formal information security policy and completed the CyberVadis supplier cybersecurity assessment (Sep 2026) with evidence drawn from live systems.</li>
+              <li><strong>Infrastructure Resilience:</strong> Led diagnosis and recovery of a VMware/QNAP iSCSI storage failure (VMFS metadata damage on an 18 TB datastore): isolated the damaged volume, kept production servers on the healthy datastore, documented the incident in six reports and a 20-item change register, and submitted a remediation proposal to management (30 TB+ off-array backup storage, datastore rebuild, ESXi upgrade).</li>
+              <li><strong>Security Monitoring:</strong> Deployed Wazuh SIEM with a 60-day log-retention policy and Zabbix monitoring of the vSphere estate; maintained Veeam backup coverage.</li>
+              <li><strong>IT Service Management:</strong> Built the GLPI 11 ITSM platform (Docker, ~110 managed Windows endpoints): digital Purchase Request and New Equipment forms with IT Director approval routing, and a custom plugin that prints approved requests with VAT, totals and signature blocks.</li>
+              <li><strong>Endpoint Management:</strong> Rolled out a self-hosted RustDesk remote-support service to all domain PCs through GLPI deployment and Group Policy, keeping remote-support sessions on the company's own servers.</li>
+              <li><strong>Documentation:</strong> Authored SOPs and runbooks for the RustDesk rollout and GLPI workflows to standardise day-to-day IT operations.</li>
+              <li><strong>People &amp; Budget:</strong> Manage the IT budget and vendor negotiations; lead recruitment, mentorship and technical training.</li>
+            </ul>
+          </div>
+        </div></div>
+
+        <div class="job"><div class="job-card">
+          <div class="job-hd" onclick="toggleJob(this)" role="button" tabindex="0" aria-expanded="false">
+            <div class="job-icon">💼</div>
+            <div class="job-meta">
+              <div class="job-title">Freelance IT Consultant</div>
+              <div class="job-co">Projects with Ambidex Integrated Solutions Limited — Cairo</div>
+            </div>
+            <div class="job-date">2026 – Present</div>
+            <div class="jt" style="transform:rotate(-90deg)">▾</div>
+          </div>
+          <div class="job-body col">
+            <ul>
+              <li><strong>Odoo ERP for a logistics client:</strong> configured multi-currency (EGP/USD) invoicing, delivery notes, per-shipment profit tracking and transport-contractor statements.</li>
+              <li><strong>Odoo Community 17 deployment:</strong> installed on Ubuntu 22.04 inside VMware, resolving dependency conflicts, partition expansion and systemd service configuration; documented as a reusable installation guide.</li>
+              <li><strong>Greenfield plant ICT design:</strong> engineering study for a new industrial plant near Ain Sokhna recommending a buried HDPE duct bank with dual 48-core fibre rings for security, LAN, SCADA and telecom; delivered in English and Arabic with executive decks.</li>
             </ul>
           </div>
         </div></div>
@@ -338,9 +360,11 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
             <ul>
               <li>Led a cross-functional IT department of 7 staff — recruitment, performance reviews, and skills development.</li>
               <li>Managed annual IT OpEx/CapEx budget of <strong>$1.5M</strong>, consistently delivering under budget through vendor negotiations.</li>
-              <li>Transitioned infrastructure to Hybrid model (Nutanix HCI), achieving <strong>30% cost savings</strong> and improved scalability.</li>
+              <li>Led the <strong>Dell HCI with Nutanix</strong> project, moving infrastructure to a hybrid model with <strong>30% cost savings</strong> and improved scalability.</li>
+              <li>Implemented the <strong>Fortinet Security Fabric</strong> across firewalls, switches and wireless access points.</li>
+              <li>Implemented <strong>CrowdStrike</strong> (EDR), <strong>Zscaler</strong> (cloud web security) and <strong>Splunk</strong> (log monitoring and SIEM) to strengthen the security stack.</li>
               <li>Deployed MFA and EDR across <strong>500+ endpoints</strong>, reducing security incidents by <strong>45%</strong> in year one.</li>
-              <li>Directed cybersecurity strategies aligned with ISO 27001, NIST, and HIPAA; led 2 annual audits with Ernst &amp; Young.</li>
+              <li>Directed cybersecurity strategy aligned with ISO 27001, NIST, and HIPAA; led 2 annual audits with Ernst &amp; Young and passed external security audits, including <strong>ITGC</strong> and <strong>ITAC</strong> reviews.</li>
               <li>Implemented IT manuals for QMS 9001:2015, EMS 14001:2015, and OHSAS 18001:2007.</li>
             </ul>
           </div>
@@ -460,20 +484,20 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
       <div class="side-card sidebar-full" id="skills">
         <div class="sc-title">Skills &amp; Expertise</div>
         <div class="skill-group">
-          <div class="sg-title">IT Management</div>
-          <div class="pills"><span class="pill t">IT Strategy</span><span class="pill">Budgeting</span><span class="pill">Team Leadership</span><span class="pill">Vendor Mgmt</span><span class="pill">Digital Transform.</span><span class="pill">Agile / PMP</span></div>
+          <div class="sg-title">IT Management &amp; Governance</div>
+          <div class="pills"><span class="pill t">IT Strategy</span><span class="pill">Budgeting</span><span class="pill">Team Leadership</span><span class="pill">Vendor Mgmt</span><span class="pill">Digital Transform.</span><span class="pill">IT Governance</span><span class="pill">Agile</span><span class="pill">ITIL</span></div>
         </div>
         <div class="skill-group">
-          <div class="sg-title">Infrastructure</div>
-          <div class="pills"><span class="pill t">AWS</span><span class="pill t">Azure</span><span class="pill">Nutanix HCI</span><span class="pill">Hybrid Cloud</span><span class="pill">Fortinet</span><span class="pill">Cisco</span><span class="pill">Aruba</span></div>
+          <div class="sg-title">Infrastructure &amp; Cloud</div>
+          <div class="pills"><span class="pill t">VMware vSphere</span><span class="pill t">Nutanix HCI</span><span class="pill t">Dell HCI</span><span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">Hybrid Cloud</span><span class="pill">Linux (Ubuntu)</span><span class="pill">Windows Server</span><span class="pill">Active Directory</span><span class="pill">iSCSI / NAS</span><span class="pill">Fortinet Security Fabric</span><span class="pill">Cisco</span><span class="pill">Aruba</span></div>
         </div>
         <div class="skill-group">
-          <div class="sg-title">Cybersecurity</div>
-          <div class="pills"><span class="pill t">ISO 27001</span><span class="pill t">NIST</span><span class="pill">SOC 1/2/3</span><span class="pill">GDPR/HIPAA</span><span class="pill">EDR / MFA</span><span class="pill">Pen Testing</span></div>
+          <div class="sg-title">Cybersecurity &amp; Compliance</div>
+          <div class="pills"><span class="pill t">ISO 27001</span><span class="pill t">NIST</span><span class="pill t">ITGC / ITAC Audits</span><span class="pill">SOC 1/2/3</span><span class="pill">GDPR/HIPAA</span><span class="pill">CrowdStrike</span><span class="pill">Zscaler</span><span class="pill">Splunk</span><span class="pill">Wazuh SIEM</span><span class="pill">MFA / EDR</span><span class="pill">DR / BC</span><span class="pill">CyberVadis</span></div>
         </div>
         <div class="skill-group">
-          <div class="sg-title">Software &amp; Tools</div>
-          <div class="pills"><span class="pill">MS Dynamics NAV</span><span class="pill">Salesforce CRM</span><span class="pill">Microsoft 365</span><span class="pill">Veritas Backup</span></div>
+          <div class="sg-title">IT Service &amp; Business Systems</div>
+          <div class="pills"><span class="pill t">GLPI ITSM</span><span class="pill">Zabbix</span><span class="pill">Veeam</span><span class="pill">Veritas Backup</span><span class="pill">Odoo ERP</span><span class="pill">MS Dynamics NAV</span><span class="pill">Salesforce CRM</span><span class="pill">Microsoft 365</span></div>
         </div>
         <div class="skill-group">
           <div class="sg-title">Soft Skills</div>
@@ -493,13 +517,13 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
       <div class="side-card sidebar-full" id="certifications">
         <div class="sc-title">Certifications &amp; Training</div>
         <div class="cert-item"><div class="cdot"></div><span>Certified QHSE Internal Auditor — Bureau Veritas</span></div>
-        <div class="cert-item"><div class="cdot"></div><span>CC Cybersecurity — ISC²</span></div>
-        <div class="cert-item"><div class="cdot"></div><span>NSE4 Network Security Professional — Fortinet</span></div>
-        <div class="cert-item"><div class="cdot"></div><span>PMP — Project Management Professional</span></div>
+        <div class="cert-item"><div class="cdot"></div><span>CC Cybersecurity — ISC² (self-study)</span></div>
+        <div class="cert-item"><div class="cdot"></div><span>NSE4 Network Security Professional — Fortinet (self-study)</span></div>
+        <div class="cert-item"><div class="cdot"></div><span>PMP — Project Management Professional (training course)</span></div>
         <div class="cert-item"><div class="cdot"></div><span>Digital Transformation Diploma — WELLGROW</span></div>
         <div class="cert-item"><div class="cdot"></div><span>CCNA v7: Enterprise Networking, Security &amp; Automation — Cisco</span></div>
         <div class="cert-item"><div class="cdot"></div><span>Cyber Ops Associate — Cisco (2022)</span></div>
-        <div class="cert-item"><div class="cdot"></div><span>ITIL Foundation Certified — EGYBYTE Egypt</span></div>
+        <div class="cert-item"><div class="cdot"></div><span>ITIL Foundation — EGYBYTE Egypt (training course)</span></div>
         <div class="cert-item"><div class="cdot"></div><span>MCITP &amp; TOT — National Education Network</span></div>
         <div class="cert-item"><div class="cdot"></div><span>Certified Professional Associate VCE</span></div>
         <div class="cert-item"><div class="cdot"></div><span>CISCO IT Essentials — Instructor Version (2010)</span></div>
