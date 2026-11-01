@@ -123,6 +123,16 @@ button{font-family:var(--ff-b);}
 .job-body li::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:.72rem;top:.15rem;}
 .badge{display:inline-block;background:rgba(14,138,124,.12);color:var(--teal);border:1px solid rgba(14,138,124,.25);font-size:.65rem;font-weight:700;padding:.08rem .4rem;border-radius:3px;font-family:var(--ff-m);margin-left:.3rem;vertical-align:middle;}
 
+/* === PROJECTS === */
+.proj-intro{font-size:.85rem;opacity:.85;margin-bottom:.9rem;}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:.75rem .9rem;display:flex;gap:.7rem;align-items:flex-start;}
+.proj-ic{width:30px;height:30px;min-width:30px;border-radius:7px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.proj-t{font-weight:700;font-size:.8rem;line-height:1.4;}
+.proj-tag{font-size:.66rem;color:var(--teal);font-weight:600;margin-top:.15rem;}
+.proj-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;font-size:.8rem;font-weight:700;}
+@media(max-width:600px){.proj-grid{grid-template-columns:1fr;}}
+
 /* === EDUCATION === */
 .edu-item{display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 1.1rem;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:.85rem;}
 .edu-icon{width:34px;height:34px;min-width:34px;border-radius:8px;background:var(--amber);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
@@ -240,6 +250,7 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
   <nav id="main-nav" aria-label="Main navigation">
     <a href="javascript:void(0)" onclick="navTo('summary')">Summary</a>
     <a href="javascript:void(0)" onclick="navTo('experience')">Experience</a>
+    <a href="javascript:void(0)" onclick="navTo('projects')">Projects</a>
     <a href="javascript:void(0)" onclick="navTo('education')">Education</a>
     <a href="javascript:void(0)" onclick="navTo('skills')">Skills</a>
     <a href="javascript:void(0)" onclick="navTo('certifications')">Certs</a>
@@ -266,6 +277,7 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
       <a href="https://www.linkedin.com/in/mohamed-atta-7b112225/" target="_blank" rel="noopener">🔗 LinkedIn</a>
       <a href="https://www.credly.com/users/mohamed-atta.a57ae4ed" target="_blank" rel="noopener">🏅 Credly</a>
       <a href="https://github.com/mohkatta" target="_blank" rel="noopener">💻 GitHub</a>
+      <a href="https://www.upwork.com/freelancers/~0192a73e0c056c66bf" target="_blank" rel="noopener">💼 Upwork</a>
     </div>
     <div class="hero-btns">
       <button class="btn-p" onclick="window.print()">⎙ Download CV</button>
@@ -430,6 +442,30 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
       </div>
     </section>
 
+    <section class="section" id="projects">
+      <div class="sec-hd" onclick="toggleSec(this)" role="button" tabindex="0" aria-expanded="true">
+        <div class="sec-hd-bar"></div><h2>Selected Projects</h2><span class="ti">▾</span>
+      </div>
+      <div class="sec-body">
+        <p class="proj-intro">Portfolio projects published on my Upwork profile, where I take on selected freelance work as an IT infrastructure, cybersecurity and Odoo ERP consultant.</p>
+        <div class="proj-grid">
+          <div class="proj-card"><div class="proj-ic">🗄️</div><div><div class="proj-t">QNAP iSCSI storage for a VMware cluster</div><div class="proj-tag">Storage</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🖥️</div><div><div class="proj-t">VMware vSphere HA cluster with vCenter for production servers</div><div class="proj-tag">Virtualization</div></div></div>
+          <div class="proj-card"><div class="proj-ic">💾</div><div><div class="proj-t">Veeam Backup &amp; Replication for a VMware environment</div><div class="proj-tag">Backup</div></div></div>
+          <div class="proj-card"><div class="proj-ic">📈</div><div><div class="proj-t">Zabbix 7.0 monitoring in Docker with VMware integration</div><div class="proj-tag">Monitoring</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🛡️</div><div><div class="proj-t">Wazuh 4.14 SIEM deployment with log-retention policy</div><div class="proj-tag">Security</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🔥</div><div><div class="proj-t">Sophos XG firewall set up from scratch</div><div class="proj-tag">Network security</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🧱</div><div><div class="proj-t">Proxmox VE virtualization host built from scratch</div><div class="proj-tag">Virtualization</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🌐</div><div><div class="proj-t">Design and implement network infrastructure</div><div class="proj-tag">Networking</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🎫</div><div><div class="proj-t">GLPI service desk and RustDesk rollout to 110 PCs</div><div class="proj-tag">IT service management</div></div></div>
+          <div class="proj-card"><div class="proj-ic">📋</div><div><div class="proj-t">Supplier security assessment and information security policy</div><div class="proj-tag">Governance &amp; compliance</div></div></div>
+          <div class="proj-card"><div class="proj-ic">📊</div><div><div class="proj-t">Odoo accounting for a logistics company (EGP/USD, Arabic)</div><div class="proj-tag">ERP</div></div></div>
+          <div class="proj-card"><div class="proj-ic">🐧</div><div><div class="proj-t">Odoo Community 17 installation guide on Ubuntu 22.04</div><div class="proj-tag">ERP / Linux</div></div></div>
+        </div>
+        <a class="proj-link" href="https://www.upwork.com/freelancers/~0192a73e0c056c66bf" target="_blank" rel="noopener">💼 View all projects on Upwork →</a>
+      </div>
+    </section>
+
     <section class="section" id="education">
       <div class="sec-hd" onclick="toggleSec(this)" role="button" tabindex="0" aria-expanded="true">
         <div class="sec-hd-bar"></div><h2>Education</h2><span class="ti">▾</span>
@@ -475,6 +511,7 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
           <a class="sl" href="https://www.linkedin.com/in/mohamed-atta-7b112225/" target="_blank" rel="noopener">🔗 LinkedIn</a>
           <a class="sl" href="https://www.credly.com/users/mohamed-atta.a57ae4ed" target="_blank" rel="noopener">🏅 Credly Badges</a>
           <a class="sl" href="https://github.com/mohkatta" target="_blank" rel="noopener">💻 GitHub</a>
+          <a class="sl" href="https://www.upwork.com/freelancers/~0192a73e0c056c66bf" target="_blank" rel="noopener">💼 Upwork Profile</a>
           <a class="sl" href="mailto:moh.k.atta@gmail.com" target="_blank" rel="noopener">✉ moh.k.atta@gmail.com</a>
           <a class="sl" href="tel:+201008885945" target="_blank" rel="noopener">📞 +20 100 888 5945</a>
         </div>
@@ -489,7 +526,7 @@ footer{text-align:center;padding:1.8rem 1rem;font-size:.75rem;color:var(--mid);b
         </div>
         <div class="skill-group">
           <div class="sg-title">Infrastructure &amp; Cloud</div>
-          <div class="pills"><span class="pill t">VMware vSphere</span><span class="pill t">Nutanix HCI</span><span class="pill t">Dell HCI</span><span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">Hybrid Cloud</span><span class="pill">Linux (Ubuntu)</span><span class="pill">Windows Server</span><span class="pill">Active Directory</span><span class="pill">iSCSI / NAS</span><span class="pill">Fortinet Security Fabric</span><span class="pill">Cisco</span><span class="pill">Aruba</span></div>
+          <div class="pills"><span class="pill t">VMware vSphere</span><span class="pill t">Nutanix HCI</span><span class="pill t">Dell HCI</span><span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">Hybrid Cloud</span><span class="pill">Linux (Ubuntu)</span><span class="pill">Windows Server</span><span class="pill">Active Directory</span><span class="pill">iSCSI / NAS</span><span class="pill">Fortinet Security Fabric</span><span class="pill">Cisco</span><span class="pill">Aruba</span><span class="pill">Hyper-V</span><span class="pill">Proxmox VE</span><span class="pill">Sophos XG</span></div>
         </div>
         <div class="skill-group">
           <div class="sg-title">Cybersecurity &amp; Compliance</div>
